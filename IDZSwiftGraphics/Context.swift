@@ -37,5 +37,21 @@ extension CGContext {
         CGContextAddPath(self, path)
         return self
     }
+    
+    // MARK: - Clipping
+    public func clip() -> CGContext {
+        CGContextClip(self)
+        return self
+    }
+    
+    public func evenOddClip() -> CGContext {
+        CGContextEOClip(self)
+        return self
+    }
+    
+    public func clipToRect(rect: CGRect) -> CGContext {
+        CGContextClipToRect(self, rect)
+        return self
+    }
 }
 
