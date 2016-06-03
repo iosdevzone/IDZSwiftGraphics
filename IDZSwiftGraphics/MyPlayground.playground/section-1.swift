@@ -8,7 +8,7 @@ let dpmm = 326 / 25.4
 let h = 42 * dpmm
 
 
-let image = renderImage(CGSizeMake(552.0,950.0), false, CGFloat(2.0)) { ctx, bounds, scale in
+let image = renderImage(CGSizeMake(552.0,950.0), opaque:false, scale:CGFloat(2.0)) { ctx, bounds, scale in
     // Move origin to center
     CGContextTranslateCTM(ctx, bounds.size.width/2.0, bounds.size.height/2.0)
     
@@ -49,6 +49,7 @@ let image = renderImage(CGSizeMake(552.0,950.0), false, CGFloat(2.0)) { ctx, bou
     var lowlight = CGPathCreateMutable()
     lowlight.addRoundedRect(bezelLowlightRect, radius: 77.0)
     
+    ctx.setStrokeColor(Color.red())
     ctx.addPath(path)
     ctx.addPath(strap)
     ctx.addPath(strap.copyWithTransform(reflectX))
@@ -65,7 +66,7 @@ let image = renderImage(CGSizeMake(552.0,950.0), false, CGFloat(2.0)) { ctx, bou
 }
 image
 image
-
+print(NSDate())
 
 
 

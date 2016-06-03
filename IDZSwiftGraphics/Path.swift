@@ -8,7 +8,11 @@
 
 import Foundation
 
+public typealias Path = CoreGraphics.CGPath
+public typealias MutablePath = CoreGraphics.CGMutablePath
+
 extension CGMutablePath {
+
     public func moveTo(point: CGPoint) -> CGMutablePath {
         CGPathMoveToPoint(self, nil, point.x, point.y)
         return self
@@ -47,7 +51,8 @@ extension CGMutablePath {
     }
     public func copyWithTransform(t: CGAffineTransform) -> CGPath {
         var transform = t
-        return CGPathCreateCopyByTransformingPath(self, &transform)
+        return CGPathCreateCopyByTransformingPath(self, &transform)!
     }
+    
     
 }

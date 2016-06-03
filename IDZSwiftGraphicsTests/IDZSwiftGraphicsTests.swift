@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import IDZSwiftGraphics
 
 class IDZSwiftGraphicsTests: XCTestCase {
     
@@ -21,16 +22,40 @@ class IDZSwiftGraphicsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testColorInit() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        var color = Color.red()
+        XCTAssertEqual(color.nativeColor, UIColor.redColor())
+        color = Color.green()
+        XCTAssertEqual(color.nativeColor, UIColor.greenColor())
+        color = Color.black()
+        XCTAssertEqual(color.nativeColor, UIColor.blackColor())
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    func testRenderImage() {
+        let size = CGSizeMake(100.0, 100.0)
+        let image = renderImage(size, opaque:true, scale:1.0) {
+            ctx, bounds, scale in
+            
         }
+        XCTAssertEqual(size, image.size)
+        
     }
+    
+    func testContext() {
+        UIGraphicsBeginImageContext(CGSizeMake(10.0, 10.0))
+        let ctx = UIGraphicsGetCurrentContext()!
+        ctx.scale(10.0)
+        var p: Path = CGPathCreateMutable()
+        var mp: MutablePath = CGPathCreateMutable()
+        UIGraphicsEndImageContext()
+    }
+    
+    func testImage() {
+        
+        var image: Image? = nil
+    }
+    
+
     
 }

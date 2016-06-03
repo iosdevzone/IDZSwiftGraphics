@@ -27,8 +27,8 @@ extension CGRect {
 extension CGAffineTransform {
     public init(from: CGRect, to: CGRect)
     {
-        let (sx, tx) = scaleAndTranslation(from.origin.x, from.origin.x + from.size.width, to.origin.x, to.origin.x + to.size.width)
-        let (sy, ty) = scaleAndTranslation(from.origin.y, from.origin.y + from.size.height, to.origin.y, to.origin.y + to.size.height)
+        let (sx, tx) = scaleAndTranslation(from.origin.x, x1: from.origin.x + from.size.width, x2: to.origin.x, x3: to.origin.x + to.size.width)
+        let (sy, ty) = scaleAndTranslation(from.origin.y, x1: from.origin.y + from.size.height, x2: to.origin.y, x3: to.origin.y + to.size.height)
         self.init(a:sx, b:0.0, c:0.0, d:sy, tx:tx, ty:ty)
     }
 }

@@ -53,5 +53,39 @@ extension CGContext {
         CGContextClipToRect(self, rect)
         return self
     }
+    
+    // MARK: - Colors
+
+    public func setStrokeColor(color: Color) -> CGContext {
+        CGContextSetStrokeColorWithColor(self, color.CGColor)
+        return self
+    }
+    
+    public func setFillColor(color: Color) -> CGContext {
+        CGContextSetFillColorWithColor(self, color.CGColor)
+        return self
+    }
+    
+    // MARK: - Transform
+    public func scale(s:CGFloat) -> CGContext {
+        CGContextScaleCTM(self, s, s)
+        return self
+    }
+    
+    public func scale(sx: CGFloat, _ sy:CGFloat) -> CGContext {
+        CGContextScaleCTM(self, sx, sy)
+        return self
+    }
+    
+    public func translate(tx: CGFloat, _ ty: CGFloat) -> CGContext {
+        CGContextTranslateCTM(self, tx, ty)
+        return self
+    }
+    
+    // MARK: - Immediate drawing
+    public func fillRect(r: CGRect) -> CGContext {
+        CGContextFillRect(self, r)
+        return self
+    }
 }
 
