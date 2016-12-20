@@ -25,15 +25,15 @@ class IDZSwiftGraphicsTests: XCTestCase {
     func testColorInit() {
         // This is an example of a functional test case.
         var color = Color.red()
-        XCTAssertEqual(color.nativeColor, UIColor.redColor())
+        XCTAssertEqual(color.nativeColor, UIColor.red)
         color = Color.green()
-        XCTAssertEqual(color.nativeColor, UIColor.greenColor())
+        XCTAssertEqual(color.nativeColor, UIColor.green)
         color = Color.black()
-        XCTAssertEqual(color.nativeColor, UIColor.blackColor())
+        XCTAssertEqual(color.nativeColor, UIColor.black)
     }
     
     func testRenderImage() {
-        let size = CGSizeMake(100.0, 100.0)
+        let size = CGSize(width: 100.0, height: 100.0)
         let image = renderImage(size, opaque:true, scale:1.0) {
             ctx, bounds, scale in
             
@@ -43,11 +43,11 @@ class IDZSwiftGraphicsTests: XCTestCase {
     }
     
     func testContext() {
-        UIGraphicsBeginImageContext(CGSizeMake(10.0, 10.0))
+        UIGraphicsBeginImageContext(CGSize(width: 10.0, height: 10.0))
         let ctx = UIGraphicsGetCurrentContext()!
         ctx.scale(10.0)
-        var p: Path = CGPathCreateMutable()
-        var mp: MutablePath = CGPathCreateMutable()
+        var p: Path = CGMutablePath()
+        var mp: MutablePath = CGMutablePath()
         UIGraphicsEndImageContext()
     }
     

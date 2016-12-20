@@ -8,26 +8,26 @@
 
 import Foundation
 
-public class Color {
+open class Color {
 #if os(OSX)
 public typealias NativeColor = NSColor
 #else
 public typealias NativeColor = UIColor
 #endif
     
-    public let nativeColor: NativeColor
+    open let nativeColor: NativeColor
     
-    public static func red() -> Color { return Color(nativeColor: NativeColor.redColor()) }
-    public static func white() -> Color { return Color(nativeColor: NativeColor.whiteColor()) }
-    public static func black() -> Color { return Color(nativeColor: NativeColor.blackColor()) }
-    public static func green() -> Color { return Color(nativeColor: NativeColor.greenColor()) }
-    public static func lightGray() -> Color { return Color(nativeColor: NativeColor.lightGrayColor()) }
+    open static func red() -> Color { return Color(nativeColor: NativeColor.red) }
+    open static func white() -> Color { return Color(nativeColor: NativeColor.white) }
+    open static func black() -> Color { return Color(nativeColor: NativeColor.black) }
+    open static func green() -> Color { return Color(nativeColor: NativeColor.green) }
+    open static func lightGray() -> Color { return Color(nativeColor: NativeColor.lightGray) }
     
     public init(nativeColor: NativeColor) {
         self.nativeColor = nativeColor
     }
     
-    public var CGColor: CGColorRef { return nativeColor.CGColor }
+    open var CGColor: CGColor { return nativeColor.cgColor }
     
     
 }

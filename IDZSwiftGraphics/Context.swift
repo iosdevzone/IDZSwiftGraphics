@@ -11,80 +11,80 @@ import Foundation
 extension CGContext {
     // MARK: - save/restore
     public func push() -> CGContext {
-        CGContextSaveGState(self)
+        self.saveGState()
         return self
     }
     
     public func pop() -> CGContext {
-        CGContextRestoreGState(self)
+        self.restoreGState()
         return self
     }
     
     // MARK: - Current Path
-    public func addEllipse(rect: CGRect) -> CGContext {
-        CGContextAddEllipseInRect(self, rect)
+    public func addEllipse(_ rect: CGRect) -> CGContext {
+        self.addEllipse(in: rect)
         return self
     }
-    public func strokePath() -> CGContext {
-        CGContextStrokePath(self)
+    public func idz_strokePath() -> CGContext {
+        self.strokePath()
         return self
     }
-    public func fillPath() -> CGContext {
-        CGContextFillPath(self)
+    public func idz_fillPath() -> CGContext {
+        self.fillPath()
         return self
     }
-    public func addPath(path: CGPath) -> CGContext {
-        CGContextAddPath(self, path)
+    public func idz_addPath(_ path: CGPath) -> CGContext {
+        self.addPath(path)
         return self
     }
     
     // MARK: - Clipping
-    public func clip() -> CGContext {
-        CGContextClip(self)
+    public func idz_clip() -> CGContext {
+        self.clip()
         return self
     }
     
-    public func evenOddClip() -> CGContext {
-        CGContextEOClip(self)
+    public func idz_evenOddClip() -> CGContext {
+        self.clip(using: .evenOdd)
         return self
     }
     
-    public func clipToRect(rect: CGRect) -> CGContext {
-        CGContextClipToRect(self, rect)
+    public func clipToRect(_ rect: CGRect) -> CGContext {
+        self.clip(to: rect)
         return self
     }
     
     // MARK: - Colors
 
-    public func setStrokeColor(color: Color) -> CGContext {
-        CGContextSetStrokeColorWithColor(self, color.CGColor)
+    public func setStrokeColor(_ color: Color) -> CGContext {
+        self.setStrokeColor(color.CGColor)
         return self
     }
     
-    public func setFillColor(color: Color) -> CGContext {
-        CGContextSetFillColorWithColor(self, color.CGColor)
+    public func setFillColor(_ color: Color) -> CGContext {
+        self.setFillColor(color.CGColor)
         return self
     }
     
     // MARK: - Transform
-    public func scale(s:CGFloat) -> CGContext {
-        CGContextScaleCTM(self, s, s)
+    public func scale(_ s:CGFloat) -> CGContext {
+        self.scaleBy(x: s, y: s)
         return self
     }
     
-    public func scale(sx: CGFloat, _ sy:CGFloat) -> CGContext {
-        CGContextScaleCTM(self, sx, sy)
+    public func scale(_ sx: CGFloat, _ sy:CGFloat) -> CGContext {
+        self.scaleBy(x: sx, y: sy)
         return self
     }
     
-    public func translate(tx: CGFloat, _ ty: CGFloat) -> CGContext {
-        CGContextTranslateCTM(self, tx, ty)
+    public func translate(_ tx: CGFloat, _ ty: CGFloat) -> CGContext {
+        self.translateBy(x: tx, y: ty)
         return self
     }
     
     // MARK: - Immediate drawing
-    public func fillRect(r: CGRect) -> CGContext {
-        CGContextFillRect(self, r)
+    public func fillRect(_ r: CGRect) -> CGContext {
+        self.fill(r)
         return self
     }
 }

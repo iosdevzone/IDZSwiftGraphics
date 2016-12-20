@@ -16,36 +16,36 @@ public typealias Image = UIKit.UIImage
 
 #if os(OSX)
 extension NSImage {
-    var CGImage: CGImageRef? {
-        return self.CGImageForProposedRect(nil, context: nil, hints: nil)
+    var CGImage: CGImage? {
+        return self.cgImage(forProposedRect: nil, context: nil, hints: nil)
     }
     
-    var PNGData: NSData? {
+    var PNGData: Data? {
         guard let cgImage = self.CGImage else { return nil }
-        let rep = NSBitmapImageRep(CGImage: cgImage)
-        rep.size = self.size
-        return rep.representationUsingType(.NSPNGFileType, properties: [:])
+        let rep = NSBitmapImageRep(cgImage: cgImage)
+        rep.size = self.size        
+        return rep.representation(using: .PNG, properties: [:])
     }
 }
     
-func renderImage(size: CGSize, opaque: Bool, scale: CGFloat, render : (context: CGContext, bounds: CGRect, scale: CGFloat) -> ()) -> NSImage {
+func renderImage(size: CGSize, opaque: Bool, scale: CGFloat, render : (_ context: CGContext, _ bounds: CGRect, _ scale: CGFloat) -> ()) -> NSImage {
     let image = NSImage(size: size)
     image.lockFocus()
-    let nsContext = NSGraphicsContext.currentContext()!
-    let ctx = nsContext.CGContext
-    let bounds = CGRect(origin: CGPointZero, size: size)
-    render(context:ctx, bounds:bounds, scale:scale)
+    let nsContext = NSGraphicsContext.current()!
+    let ctx = nsContext.cgContext
+    let bounds = CGRect(origin: CGPoint(), size: size)
+    render(ctx, bounds, scale)
     image.unlockFocus()
     return image
 }
 #else
-public func renderImage(size: CGSize, opaque: Bool, scale: CGFloat, render : (context: CGContext, bounds: CGRect, scale: CGFloat) -> ()) -> UIImage {
+public func renderImage(_ size: CGSize, opaque: Bool, scale: CGFloat, render : (_ context: CGContext, _ bounds: CGRect, _ scale: CGFloat) -> ()) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, opaque, scale)
     let ctx = UIGraphicsGetCurrentContext()
-    let bounds = CGRect(origin: CGPointZero, size: size)
-    render(context:ctx!, bounds:bounds, scale:scale)
+    let bounds = CGRect(origin: CGPoint.zero, size: size)
+    render(ctx!, bounds, scale)
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-    return image
+    return image!
 }
 #endif

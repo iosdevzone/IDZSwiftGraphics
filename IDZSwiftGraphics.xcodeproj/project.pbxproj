@@ -288,9 +288,11 @@
 					};
 					309867A01CFE49A7000FAD80 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 					309867A91CFE49A7000FAD80 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -578,6 +580,7 @@
 				PRODUCT_NAME = IDZSwiftGraphics;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -602,6 +605,7 @@
 				PRODUCT_NAME = IDZSwiftGraphics;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -620,6 +624,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iosdeveloperzone.IDZSwiftGraphics-OSXTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -637,6 +642,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iosdeveloperzone.IDZSwiftGraphics-OSXTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

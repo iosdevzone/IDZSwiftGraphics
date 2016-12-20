@@ -13,45 +13,48 @@ public typealias MutablePath = CoreGraphics.CGMutablePath
 
 extension CGMutablePath {
 
-    public func moveTo(point: CGPoint) -> CGMutablePath {
-        CGPathMoveToPoint(self, nil, point.x, point.y)
+    public func idz_moveTo(_ point: CGPoint) -> CGMutablePath {
+        self.move(to: point)
         return self
     }
-    public func moveTo(x: CGFloat, y: CGFloat) -> CGMutablePath {
-        CGPathMoveToPoint(self, nil, x, y)
+    public func idz_moveTo(_ x: CGFloat, y: CGFloat) -> CGMutablePath {
+        self.move(to: CGPoint(x: x, y: y))
         return self
     }
-    public func lineTo(point: CGPoint) -> CGMutablePath {
-        CGPathAddLineToPoint(self, nil, point.x, point.y)
+    public func idz_lineTo(_ point: CGPoint) -> CGMutablePath {
+        self.addLine(to: point)
         return self
     }
-    public func lineTo(x: CGFloat, y: CGFloat)  -> CGMutablePath {
-        CGPathAddLineToPoint(self, nil, x, y)
+    public func idz_lineTo(_ x: CGFloat, y: CGFloat)  -> CGMutablePath {
+        self.addLine(to: CGPoint(x: x, y: y))
         return self
     }
-    public func addEllipse(bounds: CGRect)  -> CGMutablePath {
-        CGPathAddEllipseInRect(self, nil, bounds)
+    
+    public func idz_addEllipse(_ bounds: CGRect)  -> CGMutablePath {
+        self.addEllipse(in: bounds)
         return self
     }
-    public func addRoundedRect(rect: CGRect, radius: CGFloat) -> CGMutablePath {
-        CGPathAddRoundedRect(self, nil, rect, radius, radius)
+    public func idz_addRoundedRect(_ rect: CGRect, radius: CGFloat) -> CGMutablePath {
+        self.__addRoundedRect(transform: nil, rect: rect, cornerWidth: radius, cornerHeight: radius)
         return self
     }
-    public func addRect(rect: CGRect) -> CGMutablePath {
-        CGPathAddRect(self, nil, rect)
+    
+    public func idz_addRect(_ rect: CGRect) -> CGMutablePath {
+        self.addRect(rect)
         return self
     }
-    public func addQuadCurveTo(point: CGPoint, controlPoint: CGPoint) -> CGMutablePath {
-        CGPathAddQuadCurveToPoint(self, nil, controlPoint.x, controlPoint.y, point.x, point.y)
+    
+    public func idz_addQuadCurveTo(_ point: CGPoint, controlPoint: CGPoint) -> CGMutablePath {
+        self.addQuadCurve(to: point, control: controlPoint)
         return self
     }
-    public func addCurveTo(point: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) -> CGMutablePath {
-        CGPathAddCurveToPoint(self, nil, controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y, point.x, point.y)
+    public func idz_addCurveTo(_ point: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) -> CGMutablePath {
+        self.addCurve(to: point, control1: controlPoint1, control2: controlPoint2)
         return self
     }
-    public func copyWithTransform(t: CGAffineTransform) -> CGPath {
+    public func idz_copyWithTransform(_ t: CGAffineTransform) -> CGPath {
         var transform = t
-        return CGPathCreateCopyByTransformingPath(self, &transform)!
+        return self.copy(using: &transform)!
     }
     
     

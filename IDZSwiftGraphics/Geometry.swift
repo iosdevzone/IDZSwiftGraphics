@@ -11,7 +11,7 @@ import Foundation
 /*
  * Calculates the scale and translation required to map from [x0,x1] onto [x2,x3]
  */
-func scaleAndTranslation(x0:CGFloat, x1: CGFloat, x2: CGFloat, x3: CGFloat) -> (CGFloat, CGFloat) {
+func scaleAndTranslation(_ x0:CGFloat, x1: CGFloat, x2: CGFloat, x3: CGFloat) -> (CGFloat, CGFloat) {
     let s = (x3 - x2) / (x1 - x0)
     let t = x2 - x0 * s;
     return (s,t)
@@ -19,7 +19,7 @@ func scaleAndTranslation(x0:CGFloat, x1: CGFloat, x2: CGFloat, x3: CGFloat) -> (
 
 extension CGRect {
     public init(center: CGPoint, size: CGSize) {
-        self.origin = CGPointMake(center.x - size.width / 2.0, center.y - size.height / 2.0)
+        self.origin = CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0)
         self.size = size
     }
 }
