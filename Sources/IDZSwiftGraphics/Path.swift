@@ -7,6 +7,12 @@
 //
 
 import Foundation
+import Foundation
+#if os(OSX)
+    import AppKit
+#else
+    import UIKit
+#endif
 
 public typealias Path = CoreGraphics.CGPath
 public typealias MutablePath = CoreGraphics.CGMutablePath

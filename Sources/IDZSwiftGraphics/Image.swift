@@ -9,8 +9,10 @@
 import Foundation
 
 #if os(OSX)
+import AppKit
 public typealias Image = AppKit.NSImage
 #else
+import UIKit
 public typealias Image = UIKit.UIImage
 #endif
 
@@ -24,14 +26,14 @@ extension NSImage {
         guard let cgImage = self.CGImage else { return nil }
         let rep = NSBitmapImageRep(cgImage: cgImage)
         rep.size = self.size        
-        return rep.representation(using: .PNG, properties: [:])
+        return rep.representation(using: .png, properties: [:])
     }
 }
     
-func renderImage(size: CGSize, opaque: Bool, scale: CGFloat, render : (_ context: CGContext, _ bounds: CGRect, _ scale: CGFloat) -> ()) -> NSImage {
+public func renderImage(size: CGSize, opaque: Bool, scale: CGFloat, render : (_ context: CGContext, _ bounds: CGRect, _ scale: CGFloat) -> ()) -> NSImage {
     let image = NSImage(size: size)
     image.lockFocus()
-    let nsContext = NSGraphicsContext.current()!
+    let nsContext = NSGraphicsContext.current
     let ctx = nsContext.cgContext
     let bounds = CGRect(origin: CGPoint(), size: size)
     render(ctx, bounds, scale)

@@ -7,6 +7,12 @@
 //
 
 import Foundation
+import Foundation
+#if os(OSX)
+    import AppKit
+#else
+    import UIKit
+#endif
 
 extension CGContext {
     // MARK: - save/restore
