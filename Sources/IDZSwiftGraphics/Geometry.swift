@@ -25,8 +25,9 @@ func scaleAndTranslation(_ x0:CGFloat, x1: CGFloat, x2: CGFloat, x3: CGFloat) ->
 
 extension CGRect {
     public init(center: CGPoint, size: CGSize) {
-        self.origin = CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0)
-        self.size = size
+        self.init(origin: CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0), size: size)
+//        self.origin = CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0)
+//        self.size = size
     }
 }
 

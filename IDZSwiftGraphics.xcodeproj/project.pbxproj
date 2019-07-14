@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3014978D22DBDF9B00659D06 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014978B22DBDF9B00659D06 /* Font.swift */; };
+		3014978E22DBDF9B00659D06 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014978C22DBDF9B00659D06 /* Gradient.swift */; };
 		OBJ_26 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_32 /* IDZSwiftGraphicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* IDZSwiftGraphicsTests.swift */; };
 		OBJ_34 /* IDZSwiftGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "IDZSwiftGraphics::IDZSwiftGraphics::Product" /* IDZSwiftGraphics.framework */; };
@@ -50,8 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3014978B22DBDF9B00659D06 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		3014978C22DBDF9B00659D06 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		"IDZSwiftGraphics::IDZSwiftGraphics::Product" /* IDZSwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IDZSwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"IDZSwiftGraphics::IDZSwiftGraphicsTests::Product" /* IDZSwiftGraphicsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = IDZSwiftGraphicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"IDZSwiftGraphics::IDZSwiftGraphicsTests::Product" /* IDZSwiftGraphicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = IDZSwiftGraphicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		OBJ_12 /* IDZSwiftGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDZSwiftGraphics.swift; sourceTree = "<group>"; };
@@ -107,7 +111,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -115,7 +119,6 @@
 				OBJ_15 /* Tests */,
 				OBJ_18 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -131,7 +134,9 @@
 			children = (
 				OBJ_9 /* Color.swift */,
 				OBJ_10 /* Context.swift */,
+				3014978B22DBDF9B00659D06 /* Font.swift */,
 				OBJ_11 /* Geometry.swift */,
+				3014978C22DBDF9B00659D06 /* Gradient.swift */,
 				OBJ_12 /* IDZSwiftGraphics.swift */,
 				OBJ_13 /* Image.swift */,
 				OBJ_14 /* Path.swift */,
@@ -203,9 +208,10 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -223,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				3014978D22DBDF9B00659D06 /* Font.swift in Sources */,
 				OBJ_26 /* Package.swift in Sources */,
+				3014978E22DBDF9B00659D06 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +277,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -278,7 +286,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -295,7 +303,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = IDZSwiftGraphicsTests;
 			};
 			name = Debug;
@@ -335,7 +343,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = IDZSwiftGraphicsTests;
 			};
 			name = Release;
@@ -357,7 +365,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = IDZSwiftGraphics;
 			};
 			name = Debug;
@@ -379,7 +387,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = IDZSwiftGraphics;
 			};
 			name = Release;
